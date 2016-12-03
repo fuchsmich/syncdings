@@ -30,7 +30,10 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import org.nemomobile.configuration 1.0
+
 import "pages"
+import "tools"
 
 ApplicationWindow
 {
@@ -38,6 +41,53 @@ ApplicationWindow
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
     allowedOrientations: Orientation.All
     _defaultPageOrientations: Orientation.All
+
+
+    ConfigurationGroup {
+        id: settings
+        path: '/apps/harbour-syncdings/settings'
+//        path: '/info/fuxl/harbour-syncdings/settings'
+        property bool startStopWithCharging: false
+        property bool startStopWithWifi: false
+        property bool enableAutorunOnStartOfApp: false
+        property bool disableAutorunOnStartOfApp: false
+        property bool stopWithApp: false
+        property bool autorun: false
+        property string wuiUrl: "http://127.0.0.1:8384/"
+//        Component.onDestruction: sync();
+//        onStartWithAppChanged: console.log(startWithApp)
+    }
+
+    Timer {
+        interval: 2000
+        running: true
+        repeat: true
+        onTriggered: {
+            systemMonitor.refresh()
+            syncthingService.refreshState()
+        }
+    }
+
+
+    SystemMonitor {
+        id: systemMonitor
+//        onWifiConnectedChanged:
+//            syncthingService.toggleServiceDueToState(settings.startStopWithWifi, wifiConnected);
+
+    }
+
+    SyncthingService {
+        id: syncthingService
+    }
+
+//    Item {
+//        id: rest
+//        property string url: "http://127.0.0.1/"
+//    }
+
+//    Component.onDestruction: {
+//        settings.autorun = true;
+//    }
 }
 
 

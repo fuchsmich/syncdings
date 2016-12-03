@@ -1,6 +1,6 @@
 Name: harbour-syncdings
 Summary: syncthing controller GUI
-Version: 0.1
+Version: 1.1
 Release: 1
 # The contents of the Group field should be one of the groups listed here:
 # http://gitorious.org/meego-developer-tools/spectacle/blobs/master/data/GROUPS
@@ -12,7 +12,7 @@ License: GPLv3
 Sources:
 - '%{name}-%{version}.tar.bz2'
 Description: |
-  Starts and stops syncthing service due to network or power state and shows some details about shared folders and connections etc.
+  Controller for syncthing systemd service
 Configure: none
 # The qtc5 builder inserts macros to allow QtCreator to have fine
 # control over qmake/make execution
@@ -34,6 +34,7 @@ PkgConfigBR:
 Requires:
   - sailfishsilica-qt5 >= 0.10.9 
   - syncthing >= 0.14
+  - nemo-qml-plugin-dbus-qt5
 
 # All installed files
 Files:

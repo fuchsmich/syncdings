@@ -32,21 +32,36 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 CoverBackground {
-    Label {
-        id: label
+    Image {
+        source: "cover-small.png"
         anchors.centerIn: parent
-        text: qsTr("My Cover")
+        opacity: 0.2
+        scale: 1.0
+
+    }
+    Column {
+            anchors.fill: parent
+            anchors.margins: Theme.paddingMedium
+            Label {
+
+                text: qsTr("SyncDings")
+
+            }
+            Label {
+                text: "syncthing state:"
+            }
+            Label {
+                text: syncthingService.state
+                color: Theme.highlightColor
+            }
     }
 
     CoverActionList {
         id: coverAction
 
         CoverAction {
-            iconSource: "image://theme/icon-cover-next"
-        }
-
-        CoverAction {
-            iconSource: "image://theme/icon-cover-pause"
+            iconSource: (settings.autorun ? "image://theme/icon-cover-pause" : "image://theme/icon-cover-play")
+            onTriggered: settings.autorun = !settings.autorun
         }
     }
 }

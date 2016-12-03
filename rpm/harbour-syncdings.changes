@@ -8,8 +8,10 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
-* Sun Apr 13 2014 Jack Tar <jack.tar@example.com> 0.0.1-1
-- Scrubbed the deck
-- Hoisted the sails
+* Thu Dec 01 2016 Michael Fuchs <michfu@gmx.at> 1.1-1
+- correct URL for web UI
+- added web UI URL to settings
 
-
+* Mon Nov 28 2016 Michael Fuchs <michfu@gmx.at> 1.0-2
+- initial version
+- control service by wifi and power connection

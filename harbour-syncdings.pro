@@ -19,8 +19,6 @@ SOURCES += src/harbour-syncdings.cpp
 OTHER_FILES += qml/harbour-syncdings.qml \
     qml/cover/CoverPage.qml \
     qml/pages/FirstPage.qml \
-    qml/pages/SecondPage.qml \
-    rpm/harbour-syncdings.changes.in \
     rpm/harbour-syncdings.spec \
     rpm/harbour-syncdings.yaml \
     translations/*.ts \
@@ -37,4 +35,11 @@ SAILFISHAPP_ICONS = 86x86 108x108 128x128 256x256
 # following TRANSLATIONS line. And also do not forget to
 # modify the localized app name in the the .desktop file.
 #TRANSLATIONS += translations/harbour-syncdings-de.ts
+
+DISTFILES += \
+    qml/tools/SystemMonitor.qml \
+    qml/tools/SyncthingService.qml \
+    qml/cover/cover-small.png \
+    qml/pages/Settings.qml \
+    rpm/harbour-syncdings.changes
 
